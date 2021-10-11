@@ -36,4 +36,10 @@ public interface IGoodsCategoryService {
      */
     Integer deleteGoodsCatorieById(Short id);
 
+    /**
+     * 商品分类-查询所有商品分类
+     * @return
+     */
+    List<GoodsCategory> selectCategoryList();
+
 }

@@ -13,6 +13,10 @@ public class BaseResult implements Serializable {
     private Integer code;
     // 状态描述
     private String message;
+
+
+    private Integer result;
+
     // 分页对象(商品列表需要-pom.xml添加依赖)
     PageInfo<?> pageInfo;
 
@@ -23,6 +27,16 @@ public class BaseResult implements Serializable {
         result.setMessage(BaseResultEnum.SUCCESS.getMessage());
         return result;
     }
+
+    //成功返回的对象
+    public static BaseResult success(Integer rst) {
+        BaseResult result = new BaseResult();
+        result.setCode(BaseResultEnum.SUCCESS.getCode());
+        result.setMessage(BaseResultEnum.SUCCESS.getMessage());
+        result.setResult(rst);
+        return result;
+    }
+
 
     //成功返回的对象-带分页对象
     public static BaseResult success(PageInfo<?> pageInfo) {
@@ -79,6 +93,15 @@ public class BaseResult implements Serializable {
 
     public void setPageInfo(PageInfo<?> pageInfo) {
         this.pageInfo = pageInfo;
+    }
+
+
+    public Integer getResult() {
+        return result;
+    }
+
+    public void setResult(Integer result) {
+        this.result = result;
     }
 
     @Override

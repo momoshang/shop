@@ -11,13 +11,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class GoodsCategoryServiceImpl  implements IGoodsCategoryService {
 
-    @Autowired
+    @Resource
     private GoodsCategoryMapper goodsCategoryMapper;
 
     @Override
@@ -140,6 +141,15 @@ public class GoodsCategoryServiceImpl  implements IGoodsCategoryService {
         example.createCriteria().andIdEqualTo(id);
         return goodsCategoryMapper.deleteByExample(example);
 
+    }
+
+    /**
+     * 商品分类-查询所有商品分类
+     * @return
+     */
+    @Override
+    public List<GoodsCategory> selectCategoryList() {
+        return goodsCategoryMapper.selectByExample(new GoodsCategoryExample());
     }
 
 }
