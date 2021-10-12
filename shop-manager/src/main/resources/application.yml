@@ -62,6 +62,11 @@ spring:
       max-request-size: 1000MB
       # 单个文件大小<=100MB
       max-file-size: 100MB
+  ## redis 配置
+  redis:
+    host: 192.168.64.100
+    password: root
+    port: 6379
 # MyBatis
 mybatis:
   # 配置 MyBatis数据返回类型别名(默认别名是类名)
